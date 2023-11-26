@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Index from './Components/Index';
 import Contact from './Components/Contact';
@@ -8,6 +9,10 @@ import Navbar from './Components/Navbar';
 import OrderSummary from './Components/OrderSummary';
 import NoPage from './Components/NoPage';
 import Collection from './Components/Collection';
+import Product1 from './Components/Product1';
+import Product2 from './Components/Product2';
+import LateLoading from './Components/LateLoading';
+const PageSpeed=React.lazy(()=>import('./Components/LateLoading'))
 function App() {
   return (
     <div className="App">
@@ -15,11 +20,22 @@ function App() {
       <Navbar/>
       <Routes>
       <Route path='/' element={<Index/>}/>
+      <Route path='/heavyload' element={
+        <React.Suspense fallback='loading'>
+          <PageSpeed/>
+        </React.Suspense>
+      }/>
       <Route path='/about' element={<About/>}/>
       <Route path='/customer' element={<Customer/>}/>
       <Route path='/contact' element={<Contact/>}/>
       <Route path='/order-summary' element={<OrderSummary/>}/>
-      <Route path='/collections' element={<Collection/>}/>
+      <Route path='collections' element={<Collection/>}>
+        <Route index element={<Product1/>}/>
+      <Route path='product1' element={<Product1/>}>
+      <Route path=':userid' element={<Product1/>}/>
+      </Route>
+      <Route path='product2' element={<Product2/>}/>
+      </Route>
       <Route path='*' element={<NoPage/>}/>
       </Routes>
       </BrowserRouter>

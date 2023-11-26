@@ -36,7 +36,7 @@
     transform: rotate(360deg);
   }
 }
-nav{
+nav,.products{
   display: flex;
   column-gap: 10px;
   background: beige;
