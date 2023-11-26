@@ -8,6 +8,7 @@ function Navbar() {
     <Link to="/about">About</Link>
     <Link to="/contact">Contact</Link>
     <Link to="/customer">Customer</Link>
+    <Link to="collections">Collection page</Link>
     </nav>
 
   )
