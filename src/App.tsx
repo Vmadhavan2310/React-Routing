@@ -23,7 +23,9 @@ function App() {
       <Route path='/order-summary' element={<OrderSummary/>}/>
       <Route path='collections' element={<Collection/>}>
         <Route index element={<Product1/>}/>
-      <Route path='product1' element={<Product1/>}/>
+      <Route path='product1' element={<Product1/>}>
+      <Route path=':userid' element={<Product1/>}/>
+      </Route>
       <Route path='product2' element={<Product2/>}/>
       </Route>
       <Route path='*' element={<NoPage/>}/>
